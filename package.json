@@ -1,0 +1,11 @@
+{
+  "name": "mongo-log-tail",
+  "version": "1.0.0",
+  "description": "Tail all the mongo queries",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "d1ma",
+  "license": "ISC"
+}
