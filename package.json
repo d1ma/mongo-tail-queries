@@ -1,11 +1,27 @@
 {
-  "name": "mongo-log-tail",
+  "name": "mongo-tail-queries",
   "version": "1.0.0",
   "description": "Tail all the mongo queries",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "dev": "npm run build && node dist/index.js 127.0.0.1:27017/my_project_db -l 2 -s 11"
   },
   "author": "d1ma",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@types/mongodb": "^3.1.7",
+    "@types/pluralize": "0.0.29",
+    "typescript": "^3.0.3"
+  },
+  "dependencies": {
+    "@types/argparse": "^1.0.34",
+    "@types/underscore": "^1.8.9",
+    "argparse": "^1.0.10",
+    "mongodb": "^3.1.6",
+    "password-prompt": "^1.0.7",
+    "pluralize": "^7.0.0"
+  },
+  "bin": "run.js"
 }
