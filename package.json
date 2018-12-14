@@ -2,6 +2,7 @@
   "name": "mongo-tail-queries",
   "version": "1.0.1",
   "description": "Tail all the mongo queries",
+  "homepage": "https://github.com/d1ma/mongo-tail-queries",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
