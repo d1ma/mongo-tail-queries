@@ -1,6 +1,6 @@
 {
   "name": "mongo-tail-queries",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Tail all the mongo queries",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -23,5 +23,13 @@
     "password-prompt": "^1.0.7",
     "pluralize": "^7.0.0"
   },
-  "bin": "run.js"
+  "bin": "run.js",
+  "keywords": [
+    "mongo",
+    "mongodb",
+    "tail",
+    "log",
+    "mongotail",
+    "query"
+  ]
 }

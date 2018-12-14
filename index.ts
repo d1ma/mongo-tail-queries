@@ -8,7 +8,7 @@ import { Db, ProfilingLevel } from 'mongodb';
 // which accepts {slowms}
 declare module 'mongodb' {
   interface Db {
-    setProfilingLevel(level: ProfilingLevel, options?: { slowms?: number}): void;
+    setProfilingLevel(level: ProfilingLevel, options?: { slowms?: number}): Promise<any>;
   }
 }
 
@@ -23,18 +23,17 @@ function tail(db: Db, args: { slowms: number }) {
 function setProfilingLevel(db: Db, args: {slowms?: number, profilelevel: number}) {
   const profilingCommand : ProfilingLevel = ['none', 'slow_only', 'all'][args.profilelevel] as ProfilingLevel;
   if (args.slowms) {
-    db.setProfilingLevel(profilingCommand, {slowms: args.slowms} );
+    return db.setProfilingLevel(profilingCommand, {slowms: args.slowms} );
   }
   else {
-    db.setProfilingLevel(profilingCommand);
+    return db.setProfilingLevel(profilingCommand);
   }
 }
 
 async function exec(): Promise<void> {
   let args = parser.parseArgs();
-  console.log(args);
   const { db } = await connect(args.db);
-  setProfilingLevel(db, args);
+  await setProfilingLevel(db, args);
   tail(db, args);
 }
 
